@@ -175,7 +175,7 @@ def positional_zscore_df(state):
 
     if position == 'CF':
         position_df = league_df[league_df['Position'].str.contains(position, na=False)]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played',  'Non-penalty goals per 90', 'xG per 90',
                                             'Shots per 90', 'Shots on target, %', 'Goal conversion, %', 'Touches in box per 90',
@@ -229,7 +229,7 @@ def positional_zscore_df(state):
 
     elif position == 'W':
         position_df = league_df[(league_df['Position'].str.contains('WF', na=False))|(league_df['Position'].str.contains('RW', na=False))|(league_df['Position'].str.contains('LW', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played',  'Non-penalty goals per 90', 'xG per 90',
                                             'Shots per 90', 'Touches in box per 90', 'xA per 90', 'Shot assists per 90', 'Passes to penalty area per 90', 'Accurate passes to penalty area, %',
@@ -283,7 +283,7 @@ def positional_zscore_df(state):
 
     elif position == 'AM-CM':
         position_df = league_df[(league_df['Position'].str.contains('AM', na=False))|(league_df['Position'].str.contains('CM', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Non-penalty goals per 90',
                                             'xG per 90', 'Touches in box per 90', 'xA per 90', 'Assists per 90', 'Shot assists per 90', 'Second assists per 90',
@@ -340,7 +340,7 @@ def positional_zscore_df(state):
 
     elif position == 'DM':
         position_df = league_df[(league_df['Position'].str.contains(position, na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Passes per 90', 'Accurate passes, %',
                                             'Forward passes per 90', 'Accurate forward passes, %',  'Passes to final third per 90', 'Accurate passes to final third, %',
@@ -394,7 +394,7 @@ def positional_zscore_df(state):
                            file_name=fn)
     elif position == 'FB':
         position_df = league_df[(league_df['Position'].str.contains('LB', na=False))|(league_df['Position'].str.contains('RB', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Passes per 90', 'Accurate passes, %',
                                             'Forward passes per 90', 'Accurate forward passes, %',  'Passes to final third per 90', 'Accurate passes to final third, %',
@@ -449,7 +449,7 @@ def positional_zscore_df(state):
 
     else:
         position_df = league_df[(league_df['Position'].str.contains('CB', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Passes per 90', 'Accurate passes, %',
                                             'Forward passes per 90', 'Accurate forward passes, %',  'Progressive passes per 90',
@@ -513,7 +513,7 @@ def Percentile(state):
         position = st.selectbox('Select Position', ['CF', 'W', 'AM-CM', 'DM', 'FB', 'CB'])
     if position == 'CF':
         position_df = league_df[league_df['Position'].str.contains(position, na=False)]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played',  'Non-penalty goals per 90', 'xG per 90',
                                             'Shots per 90', 'Shots on target, %', 'Goal conversion, %', 'Touches in box per 90',
@@ -614,7 +614,7 @@ def Percentile(state):
         #st.download_button(label="Download data as CSV",data=csv,file_name='large_df.csv',mime='text/csv')
     elif position == 'W':
         position_df = league_df[(league_df['Position'].str.contains('WF', na=False))|(league_df['Position'].str.contains('RW', na=False))|(league_df['Position'].str.contains('LW', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played',  'Non-penalty goals per 90', 'xG per 90',
                                             'Shots per 90', 'Touches in box per 90', 'xA per 90', 'Shot assists per 90', 'Passes to penalty area per 90', 'Accurate passes to penalty area, %',
@@ -719,7 +719,7 @@ def Percentile(state):
         # st.download_button(label="Download data as CSV",data=csv,file_name='large_df.csv',mime='text/csv')
     elif position == 'AM-CM':
         position_df = league_df[(league_df['Position'].str.contains('AM', na=False))|(league_df['Position'].str.contains('CM', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Non-penalty goals per 90',
                                             'xG per 90', 'Touches in box per 90', 'xA per 90', 'Assists per 90', 'Shot assists per 90', 'Second assists per 90',
@@ -829,7 +829,7 @@ def Percentile(state):
         # st.download_button(label="Download data as CSV",data=csv,file_name='large_df.csv',mime='text/csv')
     elif position == 'DM':
         position_df = league_df[(league_df['Position'].str.contains(position, na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Passes per 90', 'Accurate passes, %',
                                             'Forward passes per 90', 'Accurate forward passes, %',  'Passes to final third per 90', 'Accurate passes to final third, %',
@@ -937,7 +937,7 @@ def Percentile(state):
         # st.download_button(label="Download data as CSV",data=csv,file_name='large_df.csv',mime='text/csv')
     elif position == 'FB':
         position_df = league_df[(league_df['Position'].str.contains('LB', na=False))|(league_df['Position'].str.contains('RB', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Passes per 90', 'Accurate passes, %',
                                             'Forward passes per 90', 'Accurate forward passes, %',  'Passes to final third per 90', 'Accurate passes to final third, %',
@@ -1045,7 +1045,7 @@ def Percentile(state):
         # st.download_button(label="Download data as CSV",data=csv,file_name='large_df.csv',mime='text/csv')
     else:
         position_df = league_df[(league_df['Position'].str.contains('CB', na=False))]
-        filter_df = position_df[(position_df['Minutes played'] >= 500) & (position_df.Team.notnull())]
+        filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
         player_data = pd.DataFrame(filter_df,
                                    columns=['Team', 'Player', 'Age', 'Minutes played', 'Passes per 90', 'Accurate passes, %',
                                             'Forward passes per 90', 'Accurate forward passes, %',  'Progressive passes per 90',
