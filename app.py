@@ -191,22 +191,19 @@ def positional_zscore_df(state):
 
         player_data[col_list] = player_data[col_list].apply(zscore)
         player_data = player_data.drop(columns=['index'])
-        hide_dataframe_row_index = """
-                                <style>
-                                .row_heading.level0 {display:none}
-                                .blank {display:none}
-                                </style>
-                        """
-        st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+        player_data = player_data.set_index(['Team', 'Player'])
 
         cf_df = (player_data.style.background_gradient(vmin=-3, vmax=3,
-                                               cmap=sns.color_palette("seismic_r", as_cmap=True),
-                                               subset=col_list))
-
+                                                       cmap=sns.color_palette("seismic_r", as_cmap=True),
+                                                       subset=col_list))
 
         st.dataframe(cf_df, width=1280, height=768)
-
-        fn = str(position)+' - '+str(league)+' DataFrame.xlsx'
+        fn = str(position) + ' - ' + str(league) + ' DataFrame.xlsx'
+        player_data_download = player_data.reset_index()
+        player_data_download = (player_data_download.style.background_gradient(vmin=-3, vmax=3,
+                                                                               cmap=sns.color_palette("seismic_r",
+                                                                                                      as_cmap=True),
+                                                                               subset=col_list))
 
         def to_excel(df):
             output = BytesIO()
@@ -221,10 +218,11 @@ def positional_zscore_df(state):
             processed_data = output.getvalue()
             return processed_data
 
-        df_xlsx = to_excel(cf_df)
+        df_xlsx = to_excel(player_data_download)
         st.download_button(label='Download Data as XLSX',
                            data=df_xlsx,
                            file_name=fn)
+
 
 
     elif position == 'W':
@@ -245,22 +243,19 @@ def positional_zscore_df(state):
 
         player_data[col_list] = player_data[col_list].apply(zscore)
         player_data = player_data.drop(columns=['index'])
-        hide_dataframe_row_index = """
-                                <style>
-                                .row_heading.level0 {display:none}
-                                .blank {display:none}
-                                </style>
-                        """
-        st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+        player_data = player_data.set_index(['Team', 'Player'])
 
         cf_df = (player_data.style.background_gradient(vmin=-3, vmax=3,
-                                               cmap=sns.color_palette("seismic_r", as_cmap=True),
-                                               subset=col_list))
-
+                                                       cmap=sns.color_palette("seismic_r", as_cmap=True),
+                                                       subset=col_list))
 
         st.dataframe(cf_df, width=1280, height=768)
-
-        fn = str(position)+' - '+str(league)+' DataFrame.xlsx'
+        fn = str(position) + ' - ' + str(league) + ' DataFrame.xlsx'
+        player_data_download = player_data.reset_index()
+        player_data_download = (player_data_download.style.background_gradient(vmin=-3, vmax=3,
+                                                                               cmap=sns.color_palette("seismic_r",
+                                                                                                      as_cmap=True),
+                                                                               subset=col_list))
 
         def to_excel(df):
             output = BytesIO()
@@ -275,10 +270,11 @@ def positional_zscore_df(state):
             processed_data = output.getvalue()
             return processed_data
 
-        df_xlsx = to_excel(cf_df)
+        df_xlsx = to_excel(player_data_download)
         st.download_button(label='Download Data as XLSX',
                            data=df_xlsx,
                            file_name=fn)
+
 
 
     elif position == 'AM-CM':
@@ -303,22 +299,19 @@ def positional_zscore_df(state):
         player_df = player_data
         player_data[col_list] = player_data[col_list].apply(zscore)
         player_data = player_data.drop(columns=['index'])
-        hide_dataframe_row_index = """
-                                <style>
-                                .row_heading.level0 {display:none}
-                                .blank {display:none}
-                                </style>
-                        """
-        st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+        player_data = player_data.set_index(['Team', 'Player'])
 
         cf_df = (player_data.style.background_gradient(vmin=-3, vmax=3,
-                                               cmap=sns.color_palette("seismic_r", as_cmap=True),
-                                               subset=col_list))
-
+                                                       cmap=sns.color_palette("seismic_r", as_cmap=True),
+                                                       subset=col_list))
 
         st.dataframe(cf_df, width=1280, height=768)
-
-        fn = str(position)+' - '+str(league)+' DataFrame.xlsx'
+        fn = str(position) + ' - ' + str(league) + ' DataFrame.xlsx'
+        player_data_download = player_data.reset_index()
+        player_data_download = (player_data_download.style.background_gradient(vmin=-3, vmax=3,
+                                                                               cmap=sns.color_palette("seismic_r",
+                                                                                                      as_cmap=True),
+                                                                               subset=col_list))
 
         def to_excel(df):
             output = BytesIO()
@@ -333,10 +326,11 @@ def positional_zscore_df(state):
             processed_data = output.getvalue()
             return processed_data
 
-        df_xlsx = to_excel(cf_df)
+        df_xlsx = to_excel(player_data_download)
         st.download_button(label='Download Data as XLSX',
                            data=df_xlsx,
                            file_name=fn)
+
 
     elif position == 'DM':
         position_df = league_df[(league_df['Position'].str.contains(position, na=False))]
@@ -358,22 +352,19 @@ def positional_zscore_df(state):
         player_df = player_data
         player_data[col_list] = player_data[col_list].apply(zscore)
         player_data = player_data.drop(columns=['index'])
-        hide_dataframe_row_index = """
-                                <style>
-                                .row_heading.level0 {display:none}
-                                .blank {display:none}
-                                </style>
-                        """
-        st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+        player_data = player_data.set_index(['Team', 'Player'])
 
         cf_df = (player_data.style.background_gradient(vmin=-3, vmax=3,
-                                               cmap=sns.color_palette("seismic_r", as_cmap=True),
-                                               subset=col_list))
-
+                                                       cmap=sns.color_palette("seismic_r", as_cmap=True),
+                                                       subset=col_list))
 
         st.dataframe(cf_df, width=1280, height=768)
-
-        fn = str(position)+' - '+str(league)+' DataFrame.xlsx'
+        fn = str(position) + ' - ' + str(league) + ' DataFrame.xlsx'
+        player_data_download = player_data.reset_index()
+        player_data_download = (player_data_download.style.background_gradient(vmin=-3, vmax=3,
+                                                                               cmap=sns.color_palette("seismic_r",
+                                                                                                      as_cmap=True),
+                                                                               subset=col_list))
 
         def to_excel(df):
             output = BytesIO()
@@ -388,10 +379,11 @@ def positional_zscore_df(state):
             processed_data = output.getvalue()
             return processed_data
 
-        df_xlsx = to_excel(cf_df)
+        df_xlsx = to_excel(player_data_download)
         st.download_button(label='Download Data as XLSX',
                            data=df_xlsx,
                            file_name=fn)
+
     elif position == 'FB':
         position_df = league_df[(league_df['Position'].str.contains('LB', na=False))|(league_df['Position'].str.contains('RB', na=False))]
         filter_df = position_df[(position_df['Minutes played'] >= 350) & (position_df.Team.notnull())]
@@ -412,22 +404,19 @@ def positional_zscore_df(state):
         player_df = player_data
         player_data[col_list] = player_data[col_list].apply(zscore)
         player_data = player_data.drop(columns=['index'])
-        hide_dataframe_row_index = """
-                                <style>
-                                .row_heading.level0 {display:none}
-                                .blank {display:none}
-                                </style>
-                        """
-        st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+        player_data = player_data.set_index(['Team', 'Player'])
 
         cf_df = (player_data.style.background_gradient(vmin=-3, vmax=3,
-                                               cmap=sns.color_palette("seismic_r", as_cmap=True),
-                                               subset=col_list))
-
+                                                       cmap=sns.color_palette("seismic_r", as_cmap=True),
+                                                       subset=col_list))
 
         st.dataframe(cf_df, width=1280, height=768)
-
-        fn = str(position)+' - '+str(league)+' DataFrame.xlsx'
+        fn = str(position) + ' - ' + str(league) + ' DataFrame.xlsx'
+        player_data_download = player_data.reset_index()
+        player_data_download = (player_data_download.style.background_gradient(vmin=-3, vmax=3,
+                                                                               cmap=sns.color_palette("seismic_r",
+                                                                                                      as_cmap=True),
+                                                                               subset=col_list))
 
         def to_excel(df):
             output = BytesIO()
@@ -442,10 +431,11 @@ def positional_zscore_df(state):
             processed_data = output.getvalue()
             return processed_data
 
-        df_xlsx = to_excel(cf_df)
+        df_xlsx = to_excel(player_data_download)
         st.download_button(label='Download Data as XLSX',
                            data=df_xlsx,
                            file_name=fn)
+
 
     else:
         position_df = league_df[(league_df['Position'].str.contains('CB', na=False))]
@@ -468,21 +458,18 @@ def positional_zscore_df(state):
         player_df = player_data
         player_data[col_list] = player_data[col_list].apply(zscore)
         player_data = player_data.drop(columns=['index'])
-        hide_dataframe_row_index = """
-                                        <style>
-                                        .row_heading.level0 {display:none}
-                                        .blank {display:none}
-                                        </style>
-                                """
-        st.markdown(hide_dataframe_row_index, unsafe_allow_html=True)
+        player_data = player_data.set_index(['Team', 'Player'])
 
         cf_df = (player_data.style.background_gradient(vmin=-3, vmax=3,
                                                        cmap=sns.color_palette("seismic_r", as_cmap=True),
                                                        subset=col_list))
 
         st.dataframe(cf_df, width=1280, height=768)
-
         fn = str(position) + ' - ' + str(league) + ' DataFrame.xlsx'
+        player_data_download = player_data.reset_index()
+        player_data_download = (player_data_download.style.background_gradient(vmin=-3, vmax=3,
+                                                       cmap=sns.color_palette("seismic_r", as_cmap=True),
+                                                       subset=col_list))
 
         def to_excel(df):
             output = BytesIO()
@@ -497,7 +484,7 @@ def positional_zscore_df(state):
             processed_data = output.getvalue()
             return processed_data
 
-        df_xlsx = to_excel(cf_df)
+        df_xlsx = to_excel(player_data_download)
         st.download_button(label='Download Data as XLSX',
                            data=df_xlsx,
                            file_name=fn)
