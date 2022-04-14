@@ -16,8 +16,8 @@ import xlsxwriter
 #from streamlit.script_run_context import get_script_run_ctx
 
 
-fontPathBold = "/Users/michaelpoma/Library/Fonts/PTSans-Bold.ttf"
-fontPathNBold = "/Users/michaelpoma/Library/Fonts/PTSans-Regular.ttf"
+fontPathBold = "./PTSans-Bold.ttf"
+fontPathNBold = "./PTSans-Regular.ttf"
 titles = fm.FontProperties(fname=fontPathBold, size=32)
 subtitles = fm.FontProperties(fname=fontPathNBold, size=20)
 labels = fm.FontProperties(fname=fontPathNBold, size=12)
@@ -27,7 +27,7 @@ labels = fm.FontProperties(fname=fontPathNBold, size=12)
 def load_data():
     #url = 'https://drive.google.com/file/d/1KD5nxMlZZImiArxLXg4N43uiUkJ4taQP/view?usp=sharing'
     #path = 'https://drive.google.com/uc?export=download&id='+url.split('/')[-2]
-    path = '/Users/michaelpoma/Documents/Python/CSV/Wyscout_All_Leagues_Data.csv'
+    path = './Wyscout_All_Leagues_Data.csv'
     df = pd.read_csv(path)
     df.Team = df['Team within selected timeframe']
     #df = df[(df.Team.isin(player)) & (df.Season.isin(season))]
