@@ -16,8 +16,8 @@ import xlsxwriter
 #from streamlit.script_run_context import get_script_run_ctx
 from scipy import stats
 
-fontPathBold = "/Users/michaelpoma/Library/Fonts/PTSans-Bold.ttf"
-fontPathNBold = "/Users/michaelpoma/Library/Fonts/PTSans-Regular.ttf"
+fontPathBold = "./PTSans-Bold.ttf"
+fontPathNBold = "./PTSans-Regular.ttf"
 titles = fm.FontProperties(fname=fontPathBold, size=32)
 positiontitle = fm.FontProperties(fname=fontPathNBold, size=34)
 playertitle = fm.FontProperties(fname=fontPathBold, size=46)
